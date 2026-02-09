@@ -1,0 +1,55 @@
+.google-sans-mainclass, h1, ul {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:"GRAD" 0;
+  margin: auto;
+  display: block;
+  width: fit-content;
+  margin-top: 50px;
+}
+/* NAVBAR STYLING START */
+.navbar {
+  top: 0;
+  position: sticky;
+  overflow: hidden;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+}
+.navbar li:first-child a {
+  border-radius: 15px;
+}
+.navbar li:last-child a {
+  border-radius: 15px;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: fit-content;
+  background-color: #0066CC;
+  border-radius: 15px;
+}
+
+li a {
+  display: block;
+}
+
+ul li a {
+  display: flex;
+  color: whitesmoke;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #4394e5;
+}
+/* END OF NAVBAR STYLING */
