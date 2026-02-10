@@ -4,20 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Get Involved - TSA Website</title>
+    <title>Post - TSA Website</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h1>Get Involved - TSA Website</h1>
+    <h1>Post - TSA Website</h1>
      <nav class="navbar">
         <ul>
             <li> <a href="index.html">Home</a> </li>    
             <li><a id="first-nav" href="about.html">About</a></li>
             <li><a id="second-nav" href="member-posts.html">Members Area</a></li>
-            <li><a id="third-nav" href="post.html">Post</a></li>
             <li><a id="last-nav" href="involvement.html">Get Involved</a></li>
         </ul>
     </nav>
+    <h2 class="google-sans-mainclass" id="write-post">Write a Post</h2>
+    <br>
+    <form action="https://formspree.io/f/mnjbjqwq"  method="POST">
+      <label id="namelung">Your name: <input type="text" name="nameling"></label><br>
+      <label>Your message: <input type="text" name="message"></label><br>
+      <button type="submit">Send</button>
+    </form>
     <script src="main.js"></script>
   </body>
 </html>

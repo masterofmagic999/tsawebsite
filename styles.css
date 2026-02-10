@@ -32,12 +32,14 @@
   display: flex;
 }
 .navbar li:first-child a {
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 .navbar li:last-child a {
-  border-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
-ul {
+.navbar ul {
   list-style-type: none;
   display: flex;
   flex-direction: row;
@@ -46,14 +48,13 @@ ul {
   overflow: hidden;
   width: fit-content;
   background-color: #0066CC;
-  border-radius: 15px;
-}
+  border-radius: 15px;}
 
-li a {
+.navbar li a {
   display: block;
 }
 
-ul li a {
+.navbar ul li a {
   display: flex;
   color: whitesmoke;
   text-align: center;
@@ -61,7 +62,7 @@ ul li a {
   text-decoration: none;
 }
 
-ul li a:hover {
+.navbar ul li a:hover {
   background-color: #4394e5;
 }
 /* END OF NAVBAR STYLING */
@@ -109,21 +110,53 @@ ul li a:hover {
 .lefttext{
   text-align: left;
   flex: 1;
+  height: fit-content;
 }
 
 .righttext {
   flex: 1;  
   display: flex;
   flex-direction: column;         
-  text-align: center; 
-  align-content: center;
+  text-align: left; 
+  align-content: flex-start;
   justify-content: center; 
   border-left: 2px solid #111; 
   padding-left: 20px;
 }
 
-.righttext h2 {
-  margin: 0;
+.righttext h3 {
+  margin-left: 0;
+  margin-right: auto;
   padding-right: 40px;
   width: 100%;
 }
+
+#bullets {
+  text-align: left;
+  margin-left: 0; 
+  margin-right: auto;
+  margin-top: 15px; 
+}
+
+#title {
+  text-align: left;
+  margin-left: 0; 
+  margin-right: auto;
+  margin-top: 15px; 
+}
+
+#write-post {
+  text-align: left;
+  justify-content: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* CSS FOR FORMS + POST PAGE */
+input[type=text] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
