@@ -146,10 +146,7 @@
 }
 
 #write-post {
-  text-align: left;
-  justify-content: left;
-  margin-left: 0;
-  margin-right: auto;
+  margin-bottom: -30px;
 }
 
 /* CSS FOR FORMS + POST PAGE */
@@ -158,5 +155,12 @@ input[type=text] {
   padding: 12px;
   margin: 8px 0;
   box-sizing: border-box;
+  border: 2.5px lightseagreen solid;
+  border-radius: 20px;
 }
 
+#editor-container {
+  border: 2.5px lightseagreen solid;
+  border-radius: 20px;
+  height: 250px;
+}
