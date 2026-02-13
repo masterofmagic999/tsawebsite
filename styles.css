@@ -21,6 +21,18 @@
   width: fit-content;
   margin-top: 50px;
 }
+
+.google-sans-tagclass {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:"GRAD" 0;
+  margin: auto;
+  display: block;
+  width: fit-content;
+  margin-top: 50px;
+}
 /* NAVBAR STYLING START */
 .navbar {
   top: 0;
@@ -145,12 +157,31 @@
   margin-top: 15px; 
 }
 
+
+/* CSS FOR FORMS + POST PAGE */
+
 #write-post {
   margin-bottom: -30px;
 }
 
-/* CSS FOR FORMS + POST PAGE */
+#post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1000px;
+  width: 100%;
+  min-width: 200px;
+}
+
 input[type=text] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2.5px lightseagreen solid;
+  border-radius: 20px;
+}
+input[type=email] {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
@@ -161,6 +192,54 @@ input[type=text] {
 
 #editor-container {
   border: 2.5px lightseagreen solid;
+  border-radius: 10%;
+  height: 50%;
+  width: 100%;
+  margin-bottom: -50px;
+}
+
+#submitbutton {
+  background-color: lightseagreen;
+  color: white;
+  padding: 12px 20px;
+  min-width: 20%;
+  max-width: 50%;
+  height: 50%;
+  border: none;
   border-radius: 20px;
-  height: 250px;
+  cursor: pointer;
+  align-self: center;
+}
+
+/* MEMBER POSTS PAGE */
+
+#tag{
+  color: lightseagreen;
+  margin-left: 20px;
+  border: #0066CC solid 2px;
+  padding: 8px;
+  border-radius: 10px;
+  color: whitesmoke;
+  background-color: #0066CC;
+  text-decoration: none;
+  margin-top: 40px;
+}
+#post {
+  margin-right: 20px;
+}
+
+#posts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tiny-post-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#post-title {
+  margin-right: 0;
 }
