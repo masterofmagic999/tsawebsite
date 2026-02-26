@@ -300,11 +300,13 @@ input[type=email] {
 }
 
 .modal-content {
-  background-color: #dae1e8;
+  background-color: #ffffff;
   margin: 15% auto;
   padding: 20px;
   width: 80%;
-  border: 1px solid #111
+  border: 1px solid #292727;
+  border-radius: 12px;
+  padding-bottom: 5%;
 }
 
 .close {
@@ -316,7 +318,7 @@ input[type=email] {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(226, 108, 108);
   text-decoration: none;
   cursor: pointer;
 }
