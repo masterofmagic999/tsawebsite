@@ -106,10 +106,6 @@ let everypost = {
     ],
 }
 
-function search(query) {
-    
-}
-
 function filter(tagName) {
     for (let i = 0; i < everypost.posts.length; i++) {
         document.getElementById(i).style.display = "inline-flex"
@@ -121,46 +117,55 @@ function filter(tagName) {
     }
 }
 
+let search_input = document.getElementById("search-input");
+    search_input.addEventListener("keyup", function () {
+        let searched_thing = document.getElementById('search-input').value;
+        search(searched_thing)
+    });
+
+function search(query) {
+    for (let i = 0; i < everypost.posts.length; i++) {
+        document.getElementById(i).style.display = "inline-flex"
+    }
+    for (let i = 0; i < everypost.posts.length; i++) {
+        let post_content = everypost.posts[i].title || everypost.posts[i].description
+       
+        if (post_content.indexOf(query) > -1) {           
+       } else {
+        document.getElementById(i).style.display = 'none'
+       }
+    }
+};
 
 function displayPosts() {
+    let postsContainer = document.getElementById('posts-container');
     for (let i = 0; i < everypost.posts.length; i++) {
-        function addPosts() {
-            let postsContainer = document.getElementById('posts-container');
-            const containerdiv = document.createElement("div");
-            containerdiv.setAttribute("class", "tiny-post-container");
-            containerdiv.setAttribute("id", i);
-            postsContainer.appendChild(containerdiv);
-            const heading = document.createElement("h3");
-            const headingNode = document.createTextNode(everypost.posts[i].title);
-            heading.appendChild(headingNode);
-            heading.setAttribute("class", "google-sans-subclass");
-            heading.setAttribute("id", "post-title");
-            containerdiv.appendChild(heading);
-            const para = document.createElement("p");
-            const node = document.createTextNode(everypost.posts[i].description);
-            para.appendChild(node);
-            para.setAttribute("class", "google-sans-subclass");
-            para.setAttribute("id", "post");
-            containerdiv.appendChild(para);
-            const tag = document.createElement("p");    
-            const tagNode = document.createTextNode(everypost.posts[i].tag);
-            tag.appendChild(tagNode);
-            tag.setAttribute("class", "google-sans-tagclass");
-            tag.setAttribute("id", "tag");
-            containerdiv.appendChild(tag);
-        }
-        addPosts();
+        const containerdiv = document.createElement("div");
+        containerdiv.className = "tiny-post-container";
+        containerdiv.id = i;
+        const heading = document.createElement("h3");
+        heading.className = "google-sans-subclass";
+        heading.id = "post-title";
+        heading.textContent = everypost.posts[i].title;
+        const para = document.createElement("p");
+        para.className = "google-sans-subclass";
+        para.id = "post";
+        para.textContent = everypost.posts[i].description;
+        const tag = document.createElement("p");
+        tag.className = "google-sans-tagclass";
+        tag.id = "tag";
+        tag.textContent = everypost.posts[i].tag;
+        containerdiv.appendChild(heading);
+        containerdiv.appendChild(para);
+        containerdiv.appendChild(tag);
+        postsContainer.appendChild(containerdiv);
     }
-
 }
 
 
-
-
-
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
     displayPosts();
-};
+});
 
 
 
