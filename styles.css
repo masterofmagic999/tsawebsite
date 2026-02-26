@@ -243,3 +243,13 @@ input[type=email] {
 #post-title {
   margin-right: 0;
 }
+
+#filter-btn {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+#divy {
+  display: flex;
+  justify-content: center;
+}

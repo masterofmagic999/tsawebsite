@@ -1,4 +1,6 @@
 
+
+
 let everypost = {
     posts: [
         {
@@ -24,22 +26,22 @@ let everypost = {
         {
             title: "Urban Gardening 101",
             description: "How to grow your own vegetables even if you live in a small apartment.",
-            tag: "Nature"
+            tag: "announcement"
         },
         {
             title: "The Rise of Electric Vehicles",
             description: "Analyzing the global shift toward sustainable transportation and infrastructure.",
-            tag: "Automotive"
+            tag: "general info"
         },
         {
             title: "Understanding Blockchain",
             description: "A beginner-friendly guide to decentralized ledgers and their applications.",
-            tag: "Finance"
+            tag: "events"
         },
         {
             title: "Mental Health in the Digital Age",
             description: "Strategies for maintaining balance in a world of constant notifications.",
-            tag: "Wellness"
+            tag: "events"
         },
         {
             title: "Mastering the Command Line",
@@ -54,12 +56,12 @@ let everypost = {
         {
             title: "The Art of Storytelling",
             description: "Techniques for crafting compelling narratives that resonate with audiences.",
-            tag: "Creative"
+            tag: "general info"
         },
         {
             title: "Sustainable Fashion Trends",
             description: "How brands are moving toward ethical production and recycled materials.",
-            tag: "Fashion"
+            tag: "announcement"
         },
         {
             title: "Intro to Machine Learning",
@@ -74,7 +76,7 @@ let everypost = {
         {
             title: "Space Exploration News",
             description: "An update on the latest missions to Mars and the outer solar system.",
-            tag: "Science"
+            tag: "events"
         },
         {
             title: "Effective Time Management",
@@ -99,10 +101,26 @@ let everypost = {
         {
             title: "The Psychology of Habits",
             description: "Why we do what we do and how to build routines that actually stick.",
-            tag: "Self-Improvement"
+            tag: "announcement"
         }
     ],
 }
+
+function search(query) {
+    
+}
+
+function filter(tagName) {
+    for (let i = 0; i < everypost.posts.length; i++) {
+        document.getElementById(i).style.display = "inline-flex"
+    }
+    for (let i = 0; i < everypost.posts.length; i++) {
+        if (everypost.posts[i].tag !== tagName) {
+            document.getElementById(i).style.display = "none"
+        }
+    }
+}
+
 
 function displayPosts() {
     for (let i = 0; i < everypost.posts.length; i++) {
@@ -110,7 +128,7 @@ function displayPosts() {
             let postsContainer = document.getElementById('posts-container');
             const containerdiv = document.createElement("div");
             containerdiv.setAttribute("class", "tiny-post-container");
-            containerdiv.setAttribute("id", "clickable-post " + i);
+            containerdiv.setAttribute("id", i);
             postsContainer.appendChild(containerdiv);
             const heading = document.createElement("h3");
             const headingNode = document.createTextNode(everypost.posts[i].title);
@@ -138,9 +156,13 @@ function displayPosts() {
 
 
 
+
+
 window.onload = function() {
     displayPosts();
 };
+
+
 
 
 
