@@ -286,3 +286,48 @@ input[type=email] {
   display: flex;
   justify-content: center;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(193, 201, 210, 0.7);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #dae1e8;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  border: 1px solid #111
+}
+
+.close {
+  color: #de1010;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tiny-post-container {
+  pointer-events: none; 
+}
+
+.tiny-post-container h3, 
+.tiny-post-container p, 
+.tiny-post-container .google-sans-tagclass {
+  pointer-events: auto; 
+  cursor: pointer;     
+}
