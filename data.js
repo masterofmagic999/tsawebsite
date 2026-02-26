@@ -1,29 +1,3 @@
-function filter(tagName) {
-    for (let i = 0; i < everypost.posts.length; i++) {
-        document.getElementById(`post-${i}`).style.display = "inline-flex";
-    }
-    for (let i = 0; i < everypost.posts.length; i++) {
-        if (everypost.posts[i].tag !== tagName) {
-            document.getElementById(`post-${i}`).style.display = "none";
-        }
-    }
-}
-
-function search(query) {
-    query = query.toLowerCase();
-    for (let i = 0; i < everypost.posts.length; i++) {
-        document.getElementById(`post-${i}`).style.display = "inline-flex";
-    }
-    for (let i = 0; i < everypost.posts.length; i++) {
-        let post = everypost.posts[i];
-        let post_content = (post.title + " " + post.description).toLowerCase();
-        if (post_content.indexOf(query) > -1) {
-
-        } else {
-            document.getElementById(`post-${i}`).style.display = 'none';
-        }
-    }
-}
 let everypost = {
     posts: [
         {
@@ -149,6 +123,79 @@ let everypost = {
     ],
 }
 
+let currentFilter;
+let currentSearch;
+
+function clear() {
+    for (let i = 0; i < everypost.posts.length; i++) {
+        document.getElementById(`post-${i}`).style.display = "inline-flex";
+    }
+}
+
+function really_filter(tagName) {
+    for (let i = 0; i < everypost.posts.length; i++) {
+        if (everypost.posts[i].tag !== tagName) {
+            document.getElementById(`post-${i}`).style.display = "none";
+        }
+    }
+}
+
+function really_silter(text, filter) {
+    text = text.toLowerCase();
+    for (let i = 0; i < everypost.posts.length; i++) {
+        let post = everypost.posts[i];
+        let post_content = (post.title + " " + post.description).toLowerCase();
+        if (post_content.indexOf(text) > -1 && everypost.posts[i].tag == filter) {
+            //do nothing
+        } else {
+            document.getElementById(`post-${i}`).style.display = 'none';
+        }
+    }
+}
+
+function really_search(text) {
+    text = text.toLowerCase();
+    for (let i = 0; i < everypost.posts.length; i++) {
+        let post = everypost.posts[i];
+        let post_content = (post.title + " " + post.description).toLowerCase();
+        if (post_content.indexOf(text) > -1) {
+            //do nothing
+        } else {
+            document.getElementById(`post-${i}`).style.display = 'none';
+        }
+    }
+}
+
+function changePage(query, type) {
+    if (type === 'filter_query') {
+        clear();
+        currentFilter = query;
+        if (currentSearch) {
+            really_silter(currentSearch, query);
+        } else {
+            really_filter(query);
+        }
+    } else if (type === 'search_query') {
+        if (currentFilter) {
+            clear();
+            really_silter(query, currentFilter);
+            currentSearch = query;
+        } else {
+            clear();
+            really_search(query);
+            currentSearch = query;
+        }
+    }
+}
+
+function filter(tagName) {
+    changePage(tagName, 'filter_query')
+}
+
+function search(query) {
+    changePage(query, 'search_query')
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const postsContainer = document.getElementById('posts-container');
@@ -160,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (search_input) {
         search_input.addEventListener("keyup", function () {
             search(search_input.value);
+            changePage(search_input.value, 'search_query')
         });
     }
 });
@@ -217,8 +265,6 @@ function displayPosts() {
 }
 
 
-
-// Removed duplicate DOMContentLoaded event listener
 
 
 
