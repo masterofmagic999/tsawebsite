@@ -126,6 +126,12 @@ let everypost = {
 let currentFilter;
 let currentSearch;
 
+function really_clear() {
+    for (let i = 0; i < everypost.posts.length; i++) {
+        document.getElementById(`post-${i}`).style.display = "inline-flex";
+    }
+}
+
 function clear() {
     for (let i = 0; i < everypost.posts.length; i++) {
         document.getElementById(`post-${i}`).style.display = "inline-flex";

@@ -1,21 +1,26 @@
-.google-sans-mainclass, h1, ul {
+/* TYPOGRAPHY*/
+.google-sans-mainclass,
+h1,
+ul {
   font-family: "Google Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-  font-variation-settings:"GRAD" 0;
+  font-variation-settings: "GRAD" 0;
   margin: auto;
   display: block;
   width: fit-content;
   margin-top: 50px;
 }
 
-.google-sans-subclass, h1, ul {
+.google-sans-subclass,
+h1,
+ul {
   font-family: "Google Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:"GRAD" 0;
+  font-variation-settings: "GRAD" 0;
   margin: auto;
   display: block;
   width: fit-content;
@@ -27,12 +32,13 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-variation-settings:"GRAD" 0;
+  font-variation-settings: "GRAD" 0;
   margin: auto;
   display: block;
   width: fit-content;
   margin-top: 50px;
 }
+
 /* NAVBAR STYLING START */
 .navbar {
   top: 0;
@@ -43,14 +49,17 @@
   padding: 20px 0;
   display: flex;
 }
+
 .navbar li:first-child a {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
 }
+
 .navbar li:last-child a {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
+
 .navbar ul {
   list-style-type: none;
   display: flex;
@@ -59,8 +68,9 @@
   padding: 0;
   overflow: hidden;
   width: fit-content;
-  background-color: #0066CC;
-  border-radius: 15px;}
+  background-color: #0066cc;
+  border-radius: 15px;
+}
 
 .navbar li a {
   display: block;
@@ -79,9 +89,9 @@
 }
 /* END OF NAVBAR STYLING */
 
-/* FLEX CONATINERS FOR IMAGES AND TEXT */
+/* FLEX THINGIES FOR CONTAINERIZING*/
 .flex-container {
-  display:flex;
+  display: flex;
   align-items: center;
   gap: 20px;
   margin: 40px 0;
@@ -90,49 +100,48 @@
 .image {
   width: 300px;
   height: auto;
-
 }
 
 .text-container {
   flex: 1;
 }
 
+/* STUFF FOR SMALL SCREENS */
 @media (max-width: 600px) {
   .flex-container {
-    flex-direction: column; 
-    text-align: center;     
+    flex-direction: column;
+    text-align: center;
   }
-  
+
   .image {
-    width: 100%;   
+    width: 100%;
     max-width: 400px;
   }
 }
 
-/*  STYLING */
-
-.flex-container-textonly{
+/* TWO-COLUMN TEXT SECTION FOR THE ABOUT PAGE */
+.flex-container-textonly {
   display: flex;
   align-items: stretch;
-  gap: 40px;          
+  gap: 40px;
   margin: 50px auto;
   max-width: 900px;
 }
 
-.lefttext{
+.lefttext {
   text-align: left;
   flex: 1;
   height: fit-content;
 }
 
 .righttext {
-  flex: 1;  
+  flex: 1;
   display: flex;
-  flex-direction: column;         
-  text-align: left; 
+  flex-direction: column;
+  text-align: left;
   align-content: flex-start;
-  justify-content: center; 
-  border-left: 2px solid #111; 
+  justify-content: center;
+  border-left: 2px solid #111;
   padding-left: 20px;
 }
 
@@ -143,23 +152,15 @@
   width: 100%;
 }
 
-#bullets {
-  text-align: left;
-  margin-left: 0; 
-  margin-right: auto;
-  margin-top: 15px; 
-}
-
+#bullets,
 #title {
   text-align: left;
-  margin-left: 0; 
+  margin-left: 0;
   margin-right: auto;
-  margin-top: 15px; 
+  margin-top: 15px;
 }
 
-
-/* CSS FOR FORMS + POST PAGE */
-
+/* CSS FOR FORMS SPECFICALLY THE ONES IN THE POST PAGE */
 #write-post {
   margin-bottom: -30px;
 }
@@ -173,15 +174,8 @@
   min-width: 200px;
 }
 
-input[type=text] {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: 2.5px lightseagreen solid;
-  border-radius: 20px;
-}
-input[type=email] {
+input[type="text"],
+input[type="email"] {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
@@ -211,19 +205,18 @@ input[type=email] {
   align-self: center;
 }
 
-/* MEMBER POSTS PAGE */
-
-#tag{
-  color: lightseagreen;
+/* STUFF FOR THE PAGE WITH CONTENT IN IT */
+#tag {
   margin-left: 20px;
-  border: #0066CC solid 2px;
+  border: #0066cc solid 2px;
   padding: 8px;
   border-radius: 10px;
   color: whitesmoke;
-  background-color: #0066CC;
+  background-color: #0066cc;
   text-decoration: none;
   margin-top: 40px;
 }
+
 #post {
   margin-right: 20px;
 }
@@ -238,6 +231,8 @@ input[type=email] {
   display: flex;
   align-items: center;
   gap: 16px;
+  padding-bottom: 10px;
+  pointer-events: none;
 }
 
 #post-title {
@@ -249,27 +244,26 @@ input[type=email] {
   flex-direction: row;
 }
 
-#divy {
+#posts-filter-row,
+#posts-search-row {
   display: flex;
   justify-content: center;
 }
-
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 }
 
-.divyy {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+#posts-header-row {
+  display: block;
 }
 
-#posts, #search {
+#posts,
+#search {
   display: flex;
   justify-self: center;
   padding: 10px;
@@ -282,11 +276,7 @@ input[type=email] {
   max-width: 100%;
 }
 
-#duvy {
-  display: flex;
-  justify-content: center;
-}
-
+/* MODAL TO DISPLAY THE ACTUAL POST */
 .modal {
   display: none;
   position: fixed;
@@ -323,13 +313,17 @@ input[type=email] {
   cursor: pointer;
 }
 
-.tiny-post-container {
-  pointer-events: none; 
+/* SOME CLICKY STUFF */
+.tiny-post-container h3,
+.tiny-post-container p,
+.tiny-post-container .google-sans-tagclass {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-.tiny-post-container h3, 
-.tiny-post-container p, 
-.tiny-post-container .google-sans-tagclass {
-  pointer-events: auto; 
-  cursor: pointer;     
+button[type="button"] {
+  background-color:  #0066cc;
+  border-radius: 3px;
+  color: whitesmoke;
 }
+
