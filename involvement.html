@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Get Involved - TSA Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.4/plyr.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
   </head>
@@ -21,9 +22,20 @@
         </ul>
     </nav>
     <sl-divider></sl-divider>
-    <h1> Are you intrested in <b><span class="js-text-animation"></span></b></h1>
+    <h1> Are you interested in <b><span class="js-text-animation"></span></b></h1>
     <h2 class="google-sans-mainclass">TSA is the club for you.</h2>
     <sl-divider></sl-divider>
+    <div class="video-and-text-container">
+    <video class="video" id="player" playsinline controls data-poster="TSA-logo.png">
+      <source src="tsavideo.mp4" type="video/mp4" />
+    </video>
+    <div class="paragraph">
+      <h2 class="google-sans-mainclass">What is TSA?</h2>
+      <p class="google-sans-subclass">The Technology Student Association (TSA) is an organization for middle and high school students in STEM fields. Its core purpose is to develop leadership skills, promote high standards of ethics and scholarship, and deepen students' understanding of the technological world through hands-on activities. <br></br>
+      TSA achieves this by offering opportunities to explore technology, engineering, and design, which helps members develop problem-solving skills through individual and team work. Ultimately, TSA aims to accelerate student achievement by providing engaging opportunities to develop STEM skills and assist members in setting meaningful college and career goals. The motto is "Learning to lead in a technical world."</p>
+    </div>
+    </div>
+
     
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
@@ -36,6 +48,13 @@
           backSpeed: 30,
           backDelay: 1500
         });
+      });
+    </script>
+    <script src="https://cdn.plyr.io/3.8.4/plyr.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Plyr on the video element.
+        const player = new Plyr('#player');
       });
     </script>
   </body>

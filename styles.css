@@ -330,13 +330,32 @@ input[type="email"] {
   cursor: pointer;
 }
 
-button[type="button"] {
+button[type="button"]:not([class*="plyr"]) {
   background-color: #1f6f3e;
   border-radius: 3px;
   color: #ffffff;
 }
 
-button[type="button"]:hover {
+button[type="button"]:not([class*="plyr"]):hover {
   background-color: #8a2b3a;
+}
+
+body .plyr {
+  width: 50%;
+  max-width: 900px;
+}
+
+body .plyr video {
+  height: auto;
+  flex: 1;
+}
+
+.paragraph {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.video-and-text-container {
+  display: flex;
 }
 
