@@ -20,7 +20,23 @@
             <li><a id="last-nav" href="involvement.html">Get Involved</a></li>
         </ul>
     </nav>
+    <sl-divider></sl-divider>
+    <h1> Are you intrested in <b><span class="js-text-animation"></span></b></h1>
+    <h2 class="google-sans-mainclass">TSA is the club for you.</h2>
+    <sl-divider></sl-divider>
     
-    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Initialize text animation without jQuery.
+        var typed = new Typed('.js-text-animation', {
+          strings: ["Robotics?", "Computer Science?", "Software Design?", "CAD?", "Biotechnology?"],
+          typeSpeed: 75,
+          loop: true,
+          backSpeed: 30,
+          backDelay: 1500
+        });
+      });
+    </script>
   </body>
 </html>
