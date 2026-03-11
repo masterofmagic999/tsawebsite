@@ -125,12 +125,71 @@ let everypost = {
 
 let currentFilter;
 let currentSearch;
+let currentPage = 1;
+const pageSize = 10;
+let matchedPosts = [];
 
-function really_clear() {
+function setMatchesFromCurrentView() {
+    matchedPosts = [];
     for (let i = 0; i < everypost.posts.length; i++) {
-        document.getElementById(`post-${i}`).style.display = "inline-flex";
+        if (document.getElementById(`post-${i}`).style.display !== 'none') {
+            matchedPosts.push(i);
+        }
     }
 }
+
+function applyPagination() {
+    const totalPages = Math.max(1, Math.ceil(matchedPosts.length / pageSize));
+    if (currentPage > totalPages) {
+        currentPage = totalPages;
+    }
+    for (let i = 0; i < matchedPosts.length; i++) {
+        document.getElementById(`post-${matchedPosts[i]}`).style.display = 'none';
+    }
+
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    for (let matchedIndex = startIndex; matchedIndex < endIndex && matchedIndex < matchedPosts.length; matchedIndex++) {
+        const postId = matchedPosts[matchedIndex];
+        document.getElementById(`post-${postId}`).style.display = 'inline-flex';
+    }
+
+    document.getElementById('page-info').textContent = `Page ${currentPage} out of ${totalPages}`;
+    const isOnFirstPage = currentPage === 1;
+    const isOnLastPage = currentPage === totalPages;
+    document.getElementById('page-prev').disabled = isOnFirstPage;
+    document.getElementById('page-next').disabled = isOnLastPage;
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        applyPagination();
+    }
+}
+
+function nextPage() {
+    const totalPages = Math.max(1, Math.ceil(matchedPosts.length / pageSize));
+    if (currentPage < totalPages) {
+        currentPage++;
+        applyPagination();
+    }
+}
+
+function really_clear() {
+    currentFilter = undefined;
+    currentSearch = undefined;
+    currentPage = 1;
+    clear();
+    let search_input = document.getElementById("search-input");
+    if (search_input) {
+        search_input.value = "";
+    }
+    setMatchesFromCurrentView();
+    applyPagination();
+}
+
 
 function clear() {
     for (let i = 0; i < everypost.posts.length; i++) {
@@ -192,15 +251,12 @@ function changePage(query, type) {
             currentSearch = query;
         }
     }
+    currentPage = 1;
+    setMatchesFromCurrentView();
+    applyPagination();
 }
 
-function filter(tagName) {
-    changePage(tagName, 'filter_query')
-}
 
-function search(query) {
-    changePage(query, 'search_query')
-}
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -208,11 +264,12 @@ document.addEventListener('DOMContentLoaded', function() {
     if (postsContainer) {
         postsContainer.innerHTML = '';
         displayPosts();
+        setMatchesFromCurrentView();
+        applyPagination();
     }
     let search_input = document.getElementById("search-input");
     if (search_input) {
         search_input.addEventListener("keyup", function () {
-            search(search_input.value);
             changePage(search_input.value, 'search_query')
         });
     }

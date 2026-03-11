@@ -32,13 +32,13 @@
         <label id="search"><input type="text" id="search-input"></label> 
       </div>
     </div>
-    <sl-divider></sl-divider>
     <div id="posts-filter-row">
       <button id="clear-btn" class="google-sans-subclass" type="button" onclick="really_clear()">Clear</button>
-      <button id="filter-btn" class="google-sans-subclass" type="button" onclick="filter('announcement')">Announcements</button>
-      <button id="filter-btn" class="google-sans-subclass" type="button" onclick="filter('general info')">General Info</button>
-      <button id="filter-btn" class="google-sans-subclass" type="button" onclick="filter('events')">Events</button>
+      <button id="filter-btn" class="google-sans-subclass" type="button" onclick="changePage('announcement', 'filter_query')">Announcements</button>
+      <button id="filter-btn" class="google-sans-subclass" type="button" onclick="changePage('general info', 'filter_query')">General Info</button>
+      <button id="filter-btn" class="google-sans-subclass" type="button" onclick="changePage('events', 'filter_query')">Events</button>
     </div>
+    <sl-divider></sl-divider>
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close" id="close">&times;</span>
@@ -47,6 +47,12 @@
       </div>
     </div>
     <div id="posts-container">
+    </div>
+    <sl-divider></sl-divider>
+    <div id="pagination-row">
+      <button type="button" id="page-prev" onclick="prevPage()">Prev</button>
+      <span id="page-info" class="google-sans-subclass">Page 1 / 1</span>
+      <button type="button" id="page-next" onclick="nextPage()">Next</button>
     </div>
     <script src="main.js"></script>
     <script src="data.js"></script>
