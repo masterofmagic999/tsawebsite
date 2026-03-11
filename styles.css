@@ -255,6 +255,21 @@ input[type="email"] {
   width: auto;
 }
 
+.tiny-post-container .google-sans-tagclass {
+  margin-left: auto;
+  text-align: right;
+}
+
+.tiny-post-container h3,
+.tiny-post-container p {
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+
+.tiny-post-container h3 {
+  font-weight: 400;
+}
+
 #posts-filter-row .google-sans-subclass {
   margin: 0;
   width: auto;
@@ -276,11 +291,18 @@ input[type="email"] {
   align-items: center;
 }
 
+#posts-search-row {
+  width: 280px;
+  margin: 0 auto 14px;
+  justify-content: center;
+  position: relative;
+}
+
 #posts-filter-row {
   gap: 1.2vw;
   flex-wrap: wrap;
   width: 85vw;
-  margin: 8px auto 10px;
+  margin: 14px auto 12px;
 }
 
 .material-symbols-outlined {
@@ -292,25 +314,39 @@ input[type="email"] {
 }
 
 #posts-header-row {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #posts,
 #search {
   display: flex;
   justify-self: center;
-  padding: 10px;
+  padding: 0;
+}
+
+#posts {
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+#search {
+  margin-top: 0;
 }
 
 #search-btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 0;
-  max-width: 100%;
+  position: absolute;
+  left: -34px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
 }
 
 #search-input {
-  min-width: 220px;
+  width: 280px;
+  height: 42px;
+  margin: 0;
 }
 
 /* MODAL TO DISPLAY THE ACTUAL POST */
@@ -436,14 +472,30 @@ body .plyr video {
 
   .tiny-post-container {
     display: grid;
-    grid-template-columns: 1fr 2.6fr 1fr;
+    grid-template-columns: minmax(260px, 1fr) minmax(540px, 2.8fr) 220px;
     column-gap: 5vw;
-    justify-items: center;
+    justify-items: stretch;
+  }
+
+  .tiny-post-container h3 {
+    grid-column: 1;
+  }
+
+  .tiny-post-container p.google-sans-subclass {
+    grid-column: 2;
+  }
+
+  .tiny-post-container p.google-sans-tagclass {
+    grid-column: 3;
   }
 
   .tiny-post-container .google-sans-subclass,
   .tiny-post-container .google-sans-tagclass {
-    text-align: center;
+    text-align: left;
+  }
+
+  .tiny-post-container .google-sans-tagclass {
+    justify-self: end;
   }
 }
 
