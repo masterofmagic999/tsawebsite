@@ -49,6 +49,7 @@ ul {
   width: 100%;
   padding: 20px 0;
   display: flex;
+  z-index: 1000;
 }
 
 .navbar li:first-child a {
@@ -163,16 +164,23 @@ ul {
 
 /* CSS FOR FORMS SPECFICALLY THE ONES IN THE POST PAGE */
 #write-post {
-  margin-bottom: -30px;
+  width: min(85vw, 1000px);
+  margin-left: max(24px, 7vw);
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 14px;
+  text-align: left;
 }
 
 #post-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 1000px;
-  width: 100%;
+  width: min(85vw, 1000px);
   min-width: 200px;
+  margin-left: max(24px, 7vw);
+  margin-right: auto;
+  margin-top: 0;
 }
 
 input[type="text"],
@@ -196,36 +204,36 @@ input[type="email"] {
 #submitbutton {
   background-color: #6b1f2b;
   color: #ffffff;
-  padding: 12px 20px;
-  min-width: 20%;
-  max-width: 50%;
-  height: 50%;
+  padding: 12px;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: auto;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  align-self: center;
+  align-self: stretch;
+  margin: 28px 0 0;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
 #submitbutton:hover {
   background-color: #2a8f52;
 }
 
-/* STUFF FOR THE PAGE WITH CONTENT IN IT */
+
 #tag {
-  margin-left: 20px;
-  border: 2px solid #6b1f2b;
-  padding: 8px;
-  border-radius: 10px;
-  color: #ffffff;
-  background-color: #6b1f2b;
-  text-decoration: none;
-  margin-top: 40px;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2.5px solid #1f6f3e;
+  border-radius: 20px;
+  background-color: #ffffff;
 }
 
-#tag:hover {
-  background-color: #1f6f3e;
-  border-color: #1f6f3e;
-}
+/* STUFF FOR THE MEMBERS AREA PAGE */
 
 #post {
   margin-right: 20px;
@@ -256,8 +264,10 @@ input[type="email"] {
 }
 
 .tiny-post-container .google-sans-tagclass {
-  margin-left: auto;
+  margin-left: 0;
   text-align: right;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .tiny-post-container h3,
@@ -268,6 +278,10 @@ input[type="email"] {
 
 .tiny-post-container h3 {
   font-weight: 400;
+}
+
+.tiny-post-container h3 {
+  font-weight: 700;
 }
 
 #posts-filter-row .google-sans-subclass {
@@ -394,7 +408,7 @@ input[type="email"] {
   cursor: pointer;
 }
 
-button[type="button"]:not([class*="plyr"]) {
+button[type="button"]:not([class*="plyr"]):not([class*="ql-"]) {
   background-color: #1f6f3e;
   border: 1px solid #1f6f3e;
   border-radius: 6px;
@@ -405,12 +419,12 @@ button[type="button"]:not([class*="plyr"]) {
   transition: background-color 0.15s ease;
 }
 
-button[type="button"]:not([class*="plyr"]):hover {
+button[type="button"]:not([class*="plyr"]):not([class*="ql-"]):hover {
   background-color: #8a2b3a;
   border-color: #8a2b3a;
 }
 
-button[type="button"]:not([class*="plyr"]):disabled {
+button[type="button"]:not([class*="plyr"]):not([class*="ql-"]):disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -461,53 +475,59 @@ body .plyr video {
   opacity: 0.5;
 }
 
-@media (min-width: 1100px) {
+/* MEDIA QUERY FOR SCREENS 800PX AND WIDER */
+
+@media (min-width: 800px) {
   #posts-container,
   #posts-filter-row,
   #pagination-row {
+    width: min(93vw, 1600px);
     max-width: none;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .tiny-post-container {
+  #posts-container {
     display: grid;
-    grid-template-columns: minmax(260px, 1fr) minmax(540px, 2.8fr) 220px;
-    column-gap: 5vw;
-    justify-items: stretch;
+    grid-template-columns: 1fr 2fr 1fr;
+    column-gap: 2rem;
+    align-items: center;
+  }
+
+  .tiny-post-container {
+    display: contents;
+  }
+
+  .tiny-post-container h3,
+  .tiny-post-container p.google-sans-subclass,
+  .tiny-post-container .google-sans-tagclass {
+    margin: 0 !important;
+    width: auto !important;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.08);
   }
 
   .tiny-post-container h3 {
     grid-column: 1;
+    text-align: left;
   }
 
   .tiny-post-container p.google-sans-subclass {
     grid-column: 2;
-  }
-
-  .tiny-post-container p.google-sans-tagclass {
-    grid-column: 3;
-  }
-
-  .tiny-post-container .google-sans-subclass,
-  .tiny-post-container .google-sans-tagclass {
     text-align: left;
+    min-width: 0;
   }
-
+}
   .tiny-post-container .google-sans-tagclass {
-    justify-self: end;
+    grid-column: 3;
+    text-align: right;
+    white-space: nowrap;
+    letter-spacing: 0.1em;
+    text-transform: uppercase; 
+  }
+
+@media (min-width: 1300px) {
+  #posts-container {
+    column-gap: 2.75rem;
   }
 }
-
-@media (min-width: 1500px) {
-  #posts-container,
-  #posts-filter-row,
-  #pagination-row {
-    width: 93vw;
-  }
-
-  .tiny-post-container {
-    column-gap: 7vw;
-  }
-}
-
