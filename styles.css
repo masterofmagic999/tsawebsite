@@ -65,7 +65,7 @@ ul {
   line-height: 1.05;
 }
 
-.hdr {
+.heading {
   width: min(96vw, 1200px);
   margin: 10px auto 24px;
   padding: 12px 16px 14px;
@@ -77,15 +77,15 @@ ul {
   box-sizing: border-box;
 }
 
-.hdr h1 {
+.heading h1 {
   margin-top: 6px;
 }
 
-.hdr .navbar {
+.heading .navbar {
   padding: 12px 0;
 }
 
-.hdr .background {
+.heading .background {
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -94,16 +94,16 @@ ul {
   box-shadow: none;
 }
 
-.home .hdr {
+.home .heading {
   padding: 8px 14px 10px;
 }
 
-.home .hdr h1 {
+.home .heading h1 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   margin-top: 4px;
 }
 
-.home .hdr .navbar {
+.home .heading .navbar {
   padding: 8px 0;
 }
 
@@ -706,18 +706,18 @@ button[type="button"]:not([class*="plyr"]):not([class*="ql-"]):disabled {
 
 /* RESPONSIVE STUFF */
 @media (max-width: 600px) {
-  .hdr {
+  .heading {
     margin: 6px auto 16px;
     padding: 10px 10px 12px;
     border-radius: 10px;
   }
 
-  .hdr .background {
+  .heading .background {
     padding: 14px 10px 8px;
     border-radius: 12px;
   }
 
-  .hdr .navbar {
+  .heading .navbar {
     padding: 8px 0;
   }
 
