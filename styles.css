@@ -50,11 +50,10 @@ ul {
 
 /* BACKGROUND */
 .background {
-  border: #111111 solid 1px;
   width: fit-content;
   margin: 0 auto;
   border-radius: 5px;
-  border-width: 2px;
+  border: none;
   padding: 30px;
   padding-bottom: 10px;
   margin-bottom: 40px;
@@ -73,7 +72,7 @@ ul {
   text-align: center;
   background: linear-gradient(180deg, #ffffff 0%, #f9fbf9 100%);
   border-radius: 12px;
-  border: 1px solid rgba(17, 17, 17, 0.12);
+  border: none;
   box-shadow: 0 6px 16px rgba(17, 17, 17, 0.08);
   box-sizing: border-box;
 }
@@ -91,6 +90,8 @@ ul {
   width: 100%;
   box-sizing: border-box;
   margin: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .home .hdr {
@@ -141,11 +142,13 @@ ul {
 /* HOME SPECFICS */
 .home #welcome {
   background: linear-gradient(120deg, #f5e9ea 0%, #eef6f1 100%);
-  border: 1.5px solid #111111;
+  border: none;
   border-radius: 14px;
   padding: 10px 16px;
   box-shadow: none;
 }
+
+
 
 .home #interest-title {
   display: inline-flex;
