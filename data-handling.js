@@ -173,6 +173,8 @@ function diplayPostModal(postIndex) {
     modal.style.display = 'block';
     let post_title = document.getElementById('modal-post-title');
     let post_content = document.getElementById('modal-post-content');
+    let post_image = document.getElementById('modal-post-image');
+    let modal_layout = document.querySelector('.flex-modal');
     closer.onclick = function() {
         modal.style.display = 'none';
     }
@@ -182,7 +184,18 @@ function diplayPostModal(postIndex) {
         }
     }
     post_title.innerHTML = everypost.posts[postIndex].title;
-    post_content.innerHTML = everypost.posts[postIndex].content;   
+    post_content.innerHTML = everypost.posts[postIndex].content;
+    const image_url = everypost.posts[postIndex].image;
+    const has_image = typeof image_url === 'string' && image_url.trim() !== '';
+    if (has_image) {
+        post_image.src = image_url;
+        post_image.style.display = 'block';
+        modal_layout.classList.remove('no-image');
+    } else {
+        post_image.src = '';
+        post_image.style.display = 'none';
+        modal_layout.classList.add('no-image');
+    }
 }
 
 function displayPosts() {
@@ -197,11 +210,9 @@ function displayPosts() {
         const heading = document.createElement("h3");
         heading.className = "google-sans-subclass";
         heading.id = `post-title-${i}`;
-        if (everypost.posts[i].spotlight) {
-            heading.textContent = everypost.posts[i].title + " ★";
-            heading.style.color = "#6f6e66";
-        } else if (everypost.posts[i].spotlight === false) {
-            heading.textContent = everypost.posts[i].title;
+        heading.textContent = everypost.posts[i].title;
+        if (i < 4) {
+            heading.innerHTML = `${heading.textContent} <span class="spotlight-tag"><i>~new!</i></span>`;
         }
         const para = document.createElement("p");
         para.className = "google-sans-subclass";
