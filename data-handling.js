@@ -211,7 +211,7 @@ function displayPosts() {
         heading.className = "google-sans-subclass";
         heading.id = `post-title-${i}`;
         heading.textContent = everypost.posts[i].title;
-        if (i < 4) {
+        if (i < 3) {
             heading.innerHTML = `${heading.textContent} <span class="spotlight-tag"><i>~new!</i></span>`;
         }
         const para = document.createElement("p");
