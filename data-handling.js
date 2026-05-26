@@ -120,14 +120,19 @@ function changePage(query, type) {
             really_filter(query);
         }
     } else if (type === 'search_query') {
+        const normalizedQuery = query.trim();
+        if (normalizedQuery === '') {
+            really_clear();
+            return;
+        }
         if (currentFilter) {
             clear();
-            really_silter(query, currentFilter);
-            currentSearch = query;
+            really_silter(normalizedQuery, currentFilter);
+            currentSearch = normalizedQuery;
         } else {
             clear();
-            really_search(query);
-            currentSearch = query;
+            really_search(normalizedQuery);
+            currentSearch = normalizedQuery;
         }
     }
     currentPage = 1;
@@ -148,8 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     let search_input = document.getElementById("search-input");
     if (search_input) {
-        search_input.addEventListener("keyup", function () {
-            changePage(search_input.value, 'search_query')
+        let search_button = document.getElementById("search-btn");
+        search_button.addEventListener("click", function() {
+            changePage(search_input.value, 'search_query');
+        });
+        search_input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                changePage(search_input.value, 'search_query');
+            } else if (event.key === 'Enter' && search_input.value.trim() === '') {
+                really_clear();
+            }
         });
     }
 });
@@ -184,7 +197,12 @@ function displayPosts() {
         const heading = document.createElement("h3");
         heading.className = "google-sans-subclass";
         heading.id = `post-title-${i}`;
-        heading.textContent = everypost.posts[i].title;
+        if (everypost.posts[i].spotlight) {
+            heading.textContent = everypost.posts[i].title + " ★";
+            heading.style.color = "#6f6e66";
+        } else if (everypost.posts[i].spotlight === false) {
+            heading.textContent = everypost.posts[i].title;
+        }
         const para = document.createElement("p");
         para.className = "google-sans-subclass";
         para.id = `post-description-${i}`;

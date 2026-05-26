@@ -4,35 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GHHS TSA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frankenstyle@0.3.8/dist/css/frankenstyle-kit.min.css"/>
+    <script
+      src="https://cdn.jsdelivr.net/npm/frankenstyle@0.3.8/dist/js/hwc-core.iife.js"
+      type="module"
+    ></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
     <link rel="stylesheet" href="styles.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   </head>
   <body>
-    <h1>GHHS TSA</h1>
-    <nav class="navbar">
-    <ul class="navlist">
-      <li class="navitems"> <a class="nava" href="index.html">Home</a> </li>
-      <li class="navitems"> <a class="nava" href="about.html">About</a></li>
-      <li class="navitems"> <a class="nava" href="member-posts.html">Members Area</a></li>
-      <li class="navitems"> <a class="nava" href="involvement.html">Get Involved</a></li>
-    </ul>
-    </nav>
+    <div class="background">
+      <h1 id="welcome"> Welcome to the GHHS TSA Club!</h1>
+      <nav class="navbar">
+      <ul class="navlist">
+        <li class="navitems"> <a class="nava" href="index.html">Home</a> </li>
+        <li class="navitems"> <a class="nava" href="about.html">About</a></li>
+        <li class="navitems"> <a class="nava" href="member-posts.html">Members Area</a></li>
+        <li class="navitems"> <a class="nava" href="involvement.html">Get Involved</a></li>
+      </ul>
+      </nav>
+    </div>
+    <h1 id="interest-title">Are you interested in <b><span class="js-text-animation"></span></b></h1>
+    <h2 class="google-sans-mainclass">TSA is the club for you.</h2>
+       
+    <div class="flex-container">
+      <img src="TSA-logo.png" alt="TSA Logo" class="image">
+      <div class="text-container">
+        <h2 id="home-title" class="google-sans-subclass">Who are we?</h2>       
+        <p class="google-sans-subclass">The Technology Student Association (TSA) is an organization for middle and high school students in STEM fields. Its core purpose is to develop leadership skills, promote high standards of ethics and scholarship, and deepen students' understanding of the technological world through hands-on activities. TSA achieves this by offering opportunities to explore technology, engineering, and design, which helps members develop problem-solving skills through individual and team work. Ultimately, TSA aims to accelerate student achievement by providing engaging opportunities to develop STEM skills and assist members in setting meaningful college and career goals. The motto is "Learning to lead in a technical world."</p>
+      </div>
+      </div>
     <br></br>
-    <h1 class="animate__animated animate__jackInTheBox" id="welcome">Welcome to the TSA Club Website!</h1>
     <p class="google-sans-subclass">Hello! This the TSA Club Website. Check out the info below so we can guide you to what you're looking for.</p>
     <div class="details-group">
     <sl-details class="google-sans-subclass" id="no-auto-center" summary="Prospective Member? We'd love to have you! Check this out:">
       You can navigate to the 'Get Involved' page to find out more about the TSA club and its application process.
-      We recomend looking at this page even if you're on the fence, because it'll give you some helpful information you may not <br> know yet and a intro video. Hope to see you at our next meeting!
+      Check out the About Us and Get Involoved page for more details. Hope to see you at our next meeting!
     </sl-details>
     <sl-details class="google-sans-subclass" id="no-auto-center" summary="Club Member? Great to see you again! You can check these resources out:">
       You can navigate to the 'Members Area' to check out updates on club news, announcements, event specfic info, as well as meeting dates! P.S: The next meeting date is at the top of the page ↑ ! Hope you find what you're looking for!
     </sl-details>
+    <sl-details class="google-sans-subclass" id="no-auto-center" summary="Just here to check out the website? No problem! Check this out:">
+      Feel free to explore the website and check out the different pages. You can find out more about the club on the 'About' page, or check out some of our members' posts in the 'Members Area'. If you want to get involved, you can check out the 'Get Involved' page for more info on how to join and what we do. Thanks for visiting!
+    </sl-details>    
     </div>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/frankenstyle@0.3.8/dist/js/hwc-components.iife.js"
+      type="module"
+    ></script>
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var typed = new Typed('.js-text-animation', {
+          strings: ["Robotics?", "Computer Science?", "Software Design?", "CAD?", "Biotechnology?"],
+          typeSpeed: 75,
+          loop: true,
+          backSpeed: 30,
+          backDelay: 1500
+        });
+      });
+    </script>
   </body>
 </html>
